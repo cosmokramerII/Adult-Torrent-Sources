@@ -1,0 +1,61 @@
+name: Adult Torrent Sources List
+author: Intelligence (custom for Ferrite)
+sources:
+  - name: PornLeech Adult Index
+    version: 1
+    minVersion: '0.7'
+    about: Adult torrent indexer with Real-Debrid support
+    website: https://pornleech.com
+    tags:
+      - name: Adult
+        color: ff0000
+      - name: Torrents
+    htmlParser:
+      searchUrl: /search/{query}
+      rows: .torrent-row
+      magnet:
+        query: .magnet
+        attribute: href
+      title:
+        query: h3 a
+      size:
+        query: .size
+      sl:
+        seeders: .seeders strong
+        leechers: .leechers strong
+
+  - name: ThePornBay
+    version: 1
+    minVersion: '0.7'
+    about: Adult torrent search sorted by seeders
+    website: https://thepornbay.org
+    htmlParser:
+      searchUrl: /search/{query}/?sort=seeders
+      rows: .torrent
+      magnet:
+        query: .magnet-link
+        attribute: href
+      title:
+        query: .torrent-name a
+      size:
+        query: .size
+      sl:
+        seeders: .seeds
+
+  - name: XXXTorrent
+    version: 1
+    minVersion: '0.7'
+    about: XXX adult torrent search
+    website: https://xxxtorrent.to
+    htmlParser:
+      searchUrl: /search/{query}
+      rows: tr.torrent
+      magnet:
+        query: a[href^="magnet"]
+        attribute: href
+      title:
+        query: .title a
+      size:
+        query: .size
+      sl:
+        seeders: .seeds
