@@ -1,0 +1,102 @@
+name: Lesbian Porn Plugins (Personal) - v3 Scoreland Edition
+author: Intelligence (personal use only)
+sources:
+  - name: Sukebei (Lesbian JAV & Yuri)
+    version: 5
+    minVersion: '0.7'
+    about: >-
+      Premier for Asian lesbian JAV/yuri. Pre-biased for relevance.
+    website: "https://sukebei.nyaa.si"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Adult
+        color: ff2d55
+      - name: Reliable
+        color: 34c759
+      - name: JAV
+        color: ff9500
+    trackers: [same as before - keep your previous trackers]
+    rssParser: [same as v2]
+    htmlParser: [same as v2]
+
+  - name: 1337x (Lesbian XXX + Scoreland)
+    version: 4
+    minVersion: '0.7'
+    about: >-
+      Huge lesbian section + excellent for Scoreland busty girl-girl scenes and siterips. Forces XXX category.
+    website: "https://1337x.to"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Scoreland
+        color: 007aff
+      - name: Adult
+        color: ff2d55
+      - name: Reliable
+        color: 34c759
+    fallbackUrls: [same as before]
+    htmlParser:
+      searchUrl: /search/{query}/XXX/   # Lesbian + Scoreland queries work great here
+      rows: .torrent-list tbody tr
+      magnet:
+        query: a[href^="magnet:"]
+        attribute: href
+      title:
+        query: td.name a
+      size:
+        query: td.size
+      sl:
+        seeders: td.seeds
+        leechers: td.leeches
+
+  - name: MyPorn.Club (Lesbian HD Packs + Scoreland)
+    version: 3
+    minVersion: '0.7'
+    about: >-
+      Excellent for HD lesbian packs, studio rips including Scoreland big-boob girl-girl content.
+    website: "https://myporn.club"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Scoreland
+        color: 007aff
+      - name: Adult
+        color: ff2d55
+      - name: HD
+        color: 007aff
+    fallbackUrls: [same]
+    htmlParser: [same flexible selectors as v2]
+
+  # ────────────────────────────── NEW SOURCE ──────────────────────────────
+  - name: Scoreland Big Boob Lesbian
+    version: 1
+    minVersion: '0.7'
+    about: >-
+      Targeted for Scoreland busty lesbian/girl-girl scenes, siterips, and packs. Focuses on big-tit lipstick lesbian content from the Score Group.
+    website: "https://www.scoreland.com"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Scoreland
+        color: ff9500
+      - name: BigBoobs
+        color: ff2d55
+      - name: Adult
+        color: ff2d55
+    fallbackUrls:
+      - https://scoreland.com
+    htmlParser:
+      searchUrl: /search/{query}   # Use "scoreland lesbian" or "scoreland girl-girl" in Ferrite
+      rows: '.torrent-row, tr, .item, .search-result'
+      magnet:
+        query: 'a[href^="magnet:"]'
+        attribute: href
+      title:
+        query: '.title a, h2 a, .name, .torrent-name'
+      size:
+        query: '.size'
+        regex: '(\d+(\.\d+)?\s?[KMGT]B)'
+      sl:
+        seeders: '.seeds, .seeders, .leech'
+        leechers: '.leechers, .leeches'
