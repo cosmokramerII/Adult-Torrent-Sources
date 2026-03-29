@@ -1,0 +1,111 @@
+name: Lesbian Porn Plugins (Personal)
+author: Intelligence (personal use only)
+sources:
+  - name: Sukebei (Lesbian JAV & Yuri)
+    version: 4
+    minVersion: '0.7'
+    about: >-
+      Premier source for lesbian JAV (girl-on-girl), uncensored Asian lesbian, yuri hentai, and packs. Pre-biased searches for maximum relevance. Extremely reliable with strong seeders.
+    website: "https://sukebei.nyaa.si"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Adult
+        color: ff2d55
+      - name: Reliable
+        color: 34c759
+      - name: JAV
+        color: ff9500
+    trackers:
+      - http://nyaa.tracker.wf:7777/announce
+      - udp://open.stealth.si:80/announce
+      - udp://tracker.opentrackr.org:1337/announce
+      - udp://exodus.desync.com:6969/announce
+      - udp://tracker.torrent.eu.org:451/announce
+    rssParser:
+      searchUrl: /?page=rss&q={query}+lesbian
+      items: item
+      magnetHash:
+        query: nyaa:infoHash
+      title:
+        query: title
+      size:
+        query: nyaa:size
+      sl:
+        seeders: nyaa:seeders
+        leechers: nyaa:leechers
+    htmlParser:
+      searchUrl: ?q={query}+lesbian
+      rows: .torrent-list tbody tr
+      magnet:
+        query: td:nth-child(3) > a:nth-child(2)
+        attribute: href
+      title:
+        query: td:nth-child(2) > a:nth-last-child(1)
+      size:
+        query: td:nth-child(4)
+      sl:
+        seeders: td:nth-child(6)
+        leechers: td:nth-child(7)
+
+  - name: 1337x (Lesbian XXX)
+    version: 3
+    minVersion: '0.7'
+    about: >-
+      Huge lesbian porn section with studio packs (GirlsWay, AdultTime, etc.), strapon, sapphic, and 4K content. Forces XXX category for cleaner girl-on-girl results.
+    website: "https://1337x.to"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Adult
+        color: ff2d55
+      - name: Reliable
+        color: 34c759
+    fallbackUrls:
+      - https://1337x.st
+      - https://x1337x.ws
+      - https://1337x.to
+      - https://1337x.gd
+    htmlParser:
+      searchUrl: /search/{query}/XXX/   # Forces adult category + your "lesbian" query
+      rows: .torrent-list tbody tr
+      magnet:
+        query: a[href^="magnet:"]
+        attribute: href
+      title:
+        query: td.name a
+      size:
+        query: td.size
+      sl:
+        seeders: td.seeds
+        leechers: td.leeches
+
+  - name: MyPorn.Club (Lesbian HD Packs)
+    version: 2
+    minVersion: '0.7'
+    about: >-
+      Fast adult torrent archive with excellent lesbian / girl-on-girl HD & 4K packs, studio rips, and amateur content. Great for full scenes and collections. Active in 2026.
+    website: "https://myporn.club"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Adult
+        color: ff2d55
+      - name: HD
+        color: 007aff
+    fallbackUrls:
+      - https://myporn.club
+    htmlParser:
+      searchUrl: /search/{query}   # Append "lesbian" to your Ferrite searches
+      rows: '.torrent-row, tr, .item'   # Flexible for common adult site layouts
+      magnet:
+        query: 'a[href^="magnet:"]'
+        attribute: href
+      title:
+        query: '.title a, h2 a, .name'
+      size:
+        query: '.size'
+        regex: '(\d+(\.\d+)?\s?[KMGT]B)'
+      sl:
+        seeders: '.seeds, .seeders, .leech'
+        leechers: '.leechers, .leeches'
