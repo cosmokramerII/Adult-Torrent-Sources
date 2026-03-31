@@ -1,29 +1,20 @@
-name: Lesbian Porn Plugins
-author: YourName (personal use only)
+name: Lesbian Porn Plugins (Personal) - Scoreland Optimized
+author: Intelligence (personal use only)
 sources:
-  - name: Sukebei (Lesbian JAV Focus)
-    version: 3                    # Bump on any edits
+  - name: Sukebei (Lesbian JAV & Yuri)
+    version: 5
     minVersion: '0.7'
-    about: >-
-      Best source for lesbian JAV, uncensored girl-on-girl, hentai yuri, and Asian lesbian packs. Extremely reliable with excellent magnets and seed data.
+    about: Premier for lesbian JAV, yuri, Scoreland crossovers.
     website: "https://sukebei.nyaa.si"
     tags:
       - name: Lesbian
-        color: ff2d55              # Hot pink for instant lesbian recognition
-      - name: Adult
         color: ff2d55
+      - name: Scoreland
+        color: ffcc00
       - name: Reliable
         color: 34c759
-      - name: JAV
-        color: ff9500
-    trackers:
-      - http://nyaa.tracker.wf:7777/announce
-      - udp://open.stealth.si:80/announce
-      - udp://tracker.opentrackr.org:1337/announce
-      - udp://exodus.desync.com:6969/announce
-      - udp://tracker.torrent.eu.org:451/announce
-    rssParser:                    # Fastest for lesbian searches
-      searchUrl: /?page=rss&q={query}+lesbian   # Pre-biased toward lesbian where possible
+    rssParser:
+      searchUrl: /?page=rss&q={query}+lesbian
       items: item
       magnetHash:
         query: nyaa:infoHash
@@ -34,7 +25,7 @@ sources:
       sl:
         seeders: nyaa:seeders
         leechers: nyaa:leechers
-    htmlParser:                   # Fallback
+    htmlParser:
       searchUrl: ?q={query}+lesbian
       rows: .torrent-list tbody tr
       magnet:
@@ -48,25 +39,25 @@ sources:
         seeders: td:nth-child(6)
         leechers: td:nth-child(7)
 
-  - name: 1337x (Lesbian XXX)
-    version: 2
+  - name: 1337x (Lesbian XXX + Scoreland)
+    version: 4
     minVersion: '0.7'
-    about: >-
-      Massive lesbian porn section. Search "lesbian 4k", "girlsway", "lesbian strapon", "sapphic", or specific performers/studios. Pre-biased to XXX category for cleaner girl-on-girl results.
+    about: Huge lesbian porn section with Scoreland scenes & packs.
     website: "https://1337x.to"
     tags:
       - name: Lesbian
         color: ff2d55
-      - name: Adult
-        color: ff2d55
+      - name: Scoreland
+        color: ffcc00
       - name: Reliable
         color: 34c759
     fallbackUrls:
       - https://1337x.st
       - https://x1337x.ws
       - https://1337x.to
+      - https://1337x.gd
     htmlParser:
-      searchUrl: /search/{query}/XXX/   # Critical: forces XXX/porn category for lesbian focus
+      searchUrl: /search/{query}/XXX/
       rows: .torrent-list tbody tr
       magnet:
         query: a[href^="magnet:"]
@@ -79,34 +70,55 @@ sources:
         seeders: td.seeds
         leechers: td.leeches
 
-  - name: MyPorn.Club (Lesbian Packs)
-    version: 1
+  - name: MyPorn.Club (Lesbian HD Packs + Scoreland)
+    version: 3
     minVersion: '0.7'
-    about: >-
-      Fast adult torrent archive with excellent lesbian / girl-on-girl HD packs, studio rips, and amateur content. Great for full scenes and collections.
+    about: Excellent for Scoreland lesbian megapacks and HD girl-girl content.
     website: "https://myporn.club"
     tags:
       - name: Lesbian
         color: ff2d55
+      - name: Scoreland
+        color: ffcc00
       - name: Adult
         color: ff2d55
       - name: HD
         color: 007aff
     fallbackUrls:
       - https://myporn.club
-    htmlParser:                   # Most adult sites use HTML — adjust selectors after testing
-      searchUrl: /search/{query}   # Add "lesbian" to your query in Ferrite
-      rows: '.torrent-row, .item'   # Common classes; inspect site if needed
+    htmlParser:
+      searchUrl: /search/{query}
+      rows: '.torrent-row, tr, .item'
       magnet:
         query: 'a[href^="magnet:"]'
         attribute: href
       title:
-        query: '.title a, h2 a'
+        query: '.title a, h2 a, .name'
       size:
         query: '.size'
         regex: '(\d+(\.\d+)?\s?[KMGT]B)'
       sl:
-        seeders: '.seeds, .seeders'
+        seeders: '.seeds, .seeders, .leech'
         leechers: '.leechers, .leeches'
 
-  # Add more here if you want (duplicate the block and customize)
+actions:
+  - name: Open in Infuse
+    version: 2
+    minVersion: '0.7'
+    about: One-tap play debrided link in Infuse.
+    deeplink:
+      os: iOS
+      scheme: infuse://x-callback-url/play?url={debridLink}
+
+  - name: Open in VLC
+    version: 1
+    minVersion: '0.7'
+    about: One-tap play debrided link in VLC.
+    deeplink:
+      os: iOS
+      scheme: vlcs://{debridLink}
+
+  - name: Copy Debrid URL
+    version: 1
+    minVersion: '0.7'
+    about: Copies clean RealDebrid stream link to clipboard.
