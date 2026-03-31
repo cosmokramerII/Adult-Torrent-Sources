@@ -1,0 +1,18 @@
+name: Useful Actions for RealDebrid Workflow
+author: Intelligence (personal use only)
+actions:
+  - name: Open in Infuse
+    version: 2
+    minVersion: '0.7'
+    about: One-tap play debrided link in Infuse.
+    deeplink:
+      os: iOS
+      scheme: infuse://x-callback-url/play?url={debridLink}
+  - name: Open in VLC
+    version: 1
+    deeplink:
+      os: iOS
+      scheme: vlcs://{debridLink}
+  - name: Copy Debrid URL
+    version: 1
+    about: Copies clean RealDebrid stream link to clipboard.
