@@ -8,11 +8,16 @@ actions:
     deeplink:
       os: iOS
       scheme: infuse://x-callback-url/play?url={debridLink}
+
   - name: Open in VLC
     version: 1
+    minVersion: '0.7'
+    about: One-tap play debrided link in VLC.
     deeplink:
       os: iOS
       scheme: vlcs://{debridLink}
+
   - name: Copy Debrid URL
     version: 1
+    minVersion: '0.7'
     about: Copies clean RealDebrid stream link to clipboard.
