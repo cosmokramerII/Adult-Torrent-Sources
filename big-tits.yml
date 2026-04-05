@@ -1,0 +1,81 @@
+name: Lesbian Big Tits / Big Boobs Plugins
+author: Intelligence (personal use only)
+sources:
+  - name: LoveTorrent (Big Tits Lesbian)
+    version: 1
+    minVersion: '0.7'
+    about: >-
+      Scraper-friendly site with real big tits / big boobs lesbian torrents (Ersties, Adult Time, OnlyFans girl-girl, MILF lesbian, etc.). Simple HTML list — works well in Ferrite.
+    website: "https://lovetorrent.net"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Big Tits
+        color: ffcc00
+      - name: Adult
+        color: ff2d55
+      - name: Reliable
+        color: 34c759
+    htmlParser:
+      searchUrl: /search?q={query}+big+tits+lesbian   # Broad search for big-tits lesbian content
+      rows: '.torrent-item, .item, div.torrent, .entry'
+      magnet:
+        query: 'a[href^="magnet:"]'
+        attribute: href
+      title:
+        query: '.title, h3 a, .name, .torrent-title'
+      size:
+        query: '.size, .filesize'
+        regex: '(\d+(\.\d+)?\s?[KMGT]B)'
+      sl:
+        seeders: '.seeds, .seeders, .seed-count'
+        leechers: '.leechers, .leech-count'
+
+  - name: Sukebei (Big Tits Lesbian)
+    version: 10
+    minVersion: '0.7'
+    about: >-
+      Exact kingbri Sukebei parser biased for big tits / big boobs lesbian JAV and girl-girl content.
+    website: "https://sukebei.nyaa.si"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Big Tits
+        color: ffcc00
+      - name: Adult
+        color: ff2d55
+      - name: Reliable
+        color: 34c759
+      - name: JAV
+        color: ff9500
+    trackers:
+      - http://nyaa.tracker.wf:7777/announce
+      - udp://open.stealth.si:80/announce
+      - udp://tracker.opentrackr.org:1337/announce
+      - udp://exodus.desync.com:6969/announce
+      - udp://tracker.torrent.eu.org:451/announce
+    rssParser:
+      searchUrl: /?page=rss&q={query}+big+tits+lesbian
+      items: item
+      magnetHash:
+        query: nyaa:infoHash
+      title:
+        query: title
+      size:
+        query: nyaa:size
+      sl:
+        seeders: nyaa:seeders
+        leechers: nyaa:leechers
+    htmlParser:
+      searchUrl: ?q={query}+big+tits+lesbian
+      rows: .torrent-list tbody tr
+      magnet:
+        query: td:nth-child(3) > a:nth-child(2)
+        attribute: href
+      title:
+        query: td:nth-child(2) > a:nth-last-child(1)
+      size:
+        query: td:nth-child(4)
+      sl:
+        seeders: td:nth-child(6)
+        leechers: td:nth-child(7)
