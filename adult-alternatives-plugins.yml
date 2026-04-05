@@ -1,0 +1,90 @@
+name: Adult Alternatives (Lesbian + Scoreland Focus)
+author: Intelligence (personal use only)
+sources:
+  - name: Pornolab (Adult Packs)
+    version: 1
+    minVersion: '0.7'
+    about: >-
+      Russian adult tracker with massive lesbian, Scoreland, GirlsWay, AdultTime, and big-tit girl-girl packs.
+    website: "https://pornolab.net"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Scoreland
+        color: ffcc00
+      - name: Adult
+        color: ff2d55
+      - name: Reliable
+        color: 34c759
+    htmlParser:
+      searchUrl: /forum/index.php?act=search&query={query}+lesbian
+      rows: 'tr.torrent, tr'
+      magnet:
+        query: 'a[href^="magnet:"]'
+        attribute: href
+      title:
+        query: '.torrent_name a, .torrent-title'
+      size:
+        query: '.torrent_size'
+        regex: '(\d+(\.\d+)?\s?[KMGT]B)'
+      sl:
+        seeders: '.torrent_seeds'
+        leechers: '.torrent_leech'
+
+  - name: OneJAV (Lesbian JAV)
+    version: 1
+    minVersion: '0.7'
+    about: >-
+      Dedicated JAV torrent site — excellent for lesbian/girl-girl JAV and Scoreland-style big-tit scenes.
+    website: "https://onejav.com"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: JAV
+        color: ff9500
+      - name: Scoreland
+        color: ffcc00
+      - name: Reliable
+        color: 34c759
+    htmlParser:
+      searchUrl: /search/{query}
+      rows: '.torrent-item, .item'
+      magnet:
+        query: 'a[href^="magnet:"]'
+        attribute: href
+      title:
+        query: '.title, h3 a'
+      size:
+        query: '.size'
+        regex: '(\d+(\.\d+)?\s?[KMGT]B)'
+      sl:
+        seeders: '.seeds, .seeders'
+        leechers: '.leechers, .leeches'
+
+  - name: XXX-Torrent (Porn-Only)
+    version: 1
+    minVersion: '0.7'
+    about: >-
+      Dedicated XXX site with solid lesbian, big-tit, and pack coverage.
+    website: "https://xxx-torrent.net"
+    tags:
+      - name: Lesbian
+        color: ff2d55
+      - name: Adult
+        color: ff2d55
+      - name: Scoreland
+        color: ffcc00
+    htmlParser:
+      searchUrl: /search/{query}
+      rows: '.torrent-row, tr'
+      magnet:
+        query: 'a[href^="magnet:"]'
+        attribute: href
+      title:
+        query: '.title a'
+      size:
+        query: '.size'
+        regex: '(\d+(\.\d+)?\s?[KMGT]B)'
+      sl:
+        seeders: '.seeds'
+        leechers: '.leeches'
